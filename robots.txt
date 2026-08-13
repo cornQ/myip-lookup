@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /share
+Disallow: /check/
+Disallow: /result/
+Disallow: /capture/
+Disallow: /api/
+
+Sitemap: https://myip.cornq.net/sitemap.xml

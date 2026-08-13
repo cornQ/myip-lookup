@@ -1,0 +1,22 @@
+# CORNQ MyIP clean routes + basic protection
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Never expose private/configuration files.
+    RewriteRule ^data(?:/|$) - [F,L,NC]
+    RewriteRule ^config\.php$ - [F,L,NC]
+
+    # Keep real files/directories (robots.txt, sitemap.xml, llms.txt, etc.) working normally.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Send clean URLs such as /share, /check/TOKEN, /result/TOKEN and /capture/TOKEN to index.php.
+    RewriteRule ^ index.php [L,QSA]
+</IfModule>
+
+# Block direct access to database backup-like files as an extra safeguard.
+<FilesMatch "\.(sql|sql\.gz|sqlite|sqlite3|db)$">
+    Require all denied
+</FilesMatch>

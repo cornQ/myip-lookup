@@ -1,0 +1,20 @@
+# CORNQ What's My IP
+
+> A free IP address and network information lookup service provided by CORNQ.
+
+Website: https://myip.cornq.net/
+Provider: https://cornq.com
+
+## Features
+
+- Public IPv4 address detection
+- Public IPv6 address detection
+- Internet Service Provider (ISP) lookup
+- Autonomous System Number (ASN) lookup
+- Network organization lookup
+- Country, city and region information
+- Timezone information
+- Internet Exchange (IX/IXP) lookup
+- IX peering IPv4 addresses
+- IX peering IPv6 addresses
+- Support diagnostic links for consent-based network troubleshooting
