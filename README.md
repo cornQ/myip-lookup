@@ -5,6 +5,8 @@ temporary, read-only network snapshot links.
 
 The reference deployment is [myip.cornq.net](https://myip.cornq.net/).
 
+[**Releases**](https://github.com/cornQ/myip-lookup/releases)
+
 ## Features
 
 - Public IPv4 and IPv6 detection
@@ -141,4 +143,3 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 ## License
 
 Licensed under the [MIT License](LICENSE).
-
