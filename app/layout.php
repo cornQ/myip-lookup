@@ -5,6 +5,7 @@ function renderHeader(string $title = "What's My IP?", string $description = 'Ch
     $desc = h($description);
     $canonical = h(rtrim(BASE_URL, '/') . '/');
     $robots = $noindex ? 'noindex, nofollow, noarchive' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
+    $faviconUrl = h(assetUrl('favicon.ico'));
     $stylesheetUrl = h(assetUrl('assets/css/app.css'));
     echo <<<HTML
 <!DOCTYPE html>
@@ -21,6 +22,7 @@ function renderHeader(string $title = "What's My IP?", string $description = 'Ch
 <meta name="googlebot" content="{$robots}">
 <meta name="referrer" content="no-referrer">
 <link rel="canonical" href="{$canonical}">
+<link rel="icon" type="image/x-icon" sizes="16x16" href="{$faviconUrl}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{$fullTitle}">
 <meta property="og:description" content="{$desc}">

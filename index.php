@@ -100,7 +100,7 @@ if (isset($_GET['api']) && $_GET['api'] === 'create_share') {
         }
         jsonResponse([
             'success' => true,
-            'share_url' => BASE_URL . '/result.php?key=' . $private,
+            'share_url' => rtrim(BASE_URL, '/') . '/result/' . $private,
             'reference' => $reference,
         ]);
     } catch (Throwable $e) {
