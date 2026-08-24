@@ -5,6 +5,7 @@ Options -Indexes
     RewriteEngine On
 
     # Never expose private/configuration files.
+    RewriteRule ^app(?:/|$) - [F,L,NC]
     RewriteRule ^data(?:/|$) - [F,L,NC]
     RewriteRule ^config\.php$ - [F,L,NC]
 

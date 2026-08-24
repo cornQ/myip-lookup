@@ -36,7 +36,8 @@ The reference deployment is [myip.cornq.net](https://myip.cornq.net/).
 
 1. Clone or download the project into the site document root.
 2. Create an empty MySQL database.
-3. Import [schema.sql](schema.sql) using phpMyAdmin, Webuzo, or the MySQL CLI.
+3. Import [database/schema.sql](database/schema.sql) using phpMyAdmin, Webuzo,
+   or the MySQL CLI.
 4. Copy the example configuration:
 
    ```bash
@@ -82,12 +83,34 @@ location / {
     try_files $uri $uri/ /index.php?$query_string;
 }
 
-location ~ ^/(config\.php|data(?:/|$)) {
+location ~ ^/(app(?:/|$)|config\.php|data(?:/|$)) {
     deny all;
 }
 ```
 
 Keep the normal PHP-FPM location block for `.php` files.
+
+## Project structure
+
+```text
+app/
+  bootstrap.php       Application startup and module loading
+  support.php         HTTP, formatting, session, and asset helpers
+  database.php        PDO connection, cleanup, and rate limits
+  network.php         IP, reverse DNS, and PeeringDB lookups
+  diagnostics.php     Diagnostic capture persistence and retrieval
+  layout.php          Shared page header and footer
+  views/              Homepage, diagnostic, and result templates
+assets/
+  css/app.css         Shared brand and responsive interface styles
+  js/                 Common and page-specific browser behavior
+database/schema.sql   MySQL schema
+index.php             Public route controller
+```
+
+The public URLs remain rooted at the project directory for compatibility with
+typical Webuzo deployments. The included `.htaccess` prevents direct access to
+the internal `app/` directory and the live `config.php` file.
 
 ## Cloudflare
 
